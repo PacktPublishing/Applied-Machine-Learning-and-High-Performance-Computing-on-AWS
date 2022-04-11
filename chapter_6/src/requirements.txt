@@ -1,0 +1,9 @@
+vit_pytorch
+linformer
+ipywidgets
+numpy
+sagemaker
+sagemaker-experiments
+scipy
+torchnet
+smdebug
