@@ -77,11 +77,6 @@ def get_train_data_loader(train_dir, batch_size):
                 num_replicas=smp.dp_size(), # The size of the data-parallelism group.
                 drop_last=True,
             )
-    #     if smp.dp_size() > 1:
-    #         partitions_dict = {f"{i}": 1 / smp.dp_size() for i in range(smp.dp_size())}
-    #         train_dataset = SplitDataset(train_dataset, partitions=partitions_dict)
-    #         train_dataset.select(f"{smp.dp_rank()}")
-
 
         print('---------------- Train Dataset Info:-----------------\n', train_dataset)
 
@@ -175,8 +170,6 @@ def test(model, device, val_dataloader, epoch):
             n_batches += 1
 
     if n_batches > 0:
-#         torch.distributed.all_reduce(val_loss, group=smp.get_dp_process_group())
-#         val_loss /= smp.dp_size()
         val_loss /= n_batches
         val_loss = val_loss.item()
     if n_batches == 0:
@@ -185,8 +178,8 @@ def test(model, device, val_dataloader, epoch):
 
 def save_model(model, model_dir):
     path = os.path.join(model_dir, 'model.pth')
-    # recommended way from http://pytorch.org/docs/master/notes/serialization.html
-    torch.save(model.state_dict(), path)
+    # # smdistributed: smp.save() - saves an object. This operation is similar to torch.save().
+    smp.save(model.state_dict(), path)
     print(f"Saving model: {path} \n")
     
 def main():
@@ -278,9 +271,9 @@ def main():
             test(model, args.device, validation_dataloader, epoch)
         scheduler.step()
 
-#     if rank == 0:
-#         model_save = model.module if hasattr(model, "module") else model
-#         save_model(model_save, args.model_dir)
+    if smp.rank() == 0:
+        model_save = model.module if hasattr(model, "module") else model
+        save_model(model_save, args.model_dir)
     
 if __name__ =='__main__':
     main()
