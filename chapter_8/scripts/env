@@ -1,0 +1,9 @@
+GGC_ROOT_PATH=/greengrass/v2
+AWS_REGION=us-east-1
+PROVISION=true
+THING_NAME=mything
+THING_GROUP_NAME=mythinggroupname
+TES_ROLE_NAME=GreengrassV2TokenExchangeRole
+TES_ROLE_ALIAS_NAME=GreengrassCoreTokenExchangeRoleAlias
+COMPONENT_DEFAULT_USER=ggc_user:ggc_group
+DEPLOY_DEV_TOOLS=true

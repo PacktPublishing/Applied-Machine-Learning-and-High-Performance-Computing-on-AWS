@@ -1,0 +1,49 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.greengrass.SageMakerEdgeManager.ImageClassification.Model",
+  "ComponentVersion": "1.0.1",
+  "ComponentType": "aws.greengrass.generic",
+  "ComponentDescription": "This component provides sagemaker edge manager packaged resnet model for performing image classification.",
+  "ComponentPublisher": "AWS",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "ModelPath": "../com.greengrass.SageMakerEdgeManager.ImageClassification.Model/1.0.1"
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux",
+        "architecture": "/amd64|x86/"
+      },
+      "Lifecycle": {
+        "install": {
+          "script": "tar xf {artifacts:path}/resnet-1.0.tar.gz -C {configuration:/ModelPath}"
+        }
+      },
+      "Artifacts": [
+        {
+          "Uri": "s3://sagemaker-us-east-1-670488263423/image-classification-neo-2022-05-18-23-32-39-457/output/edgemanager/resnet-1.0.tar.gz",
+          "Digest": "nzAirgn3o0M8b4wUZwl34emh+CP+RNTuhaOBW6a4ymc=",
+          "Algorithm": "SHA-256",
+          "Unarchive": "NONE",
+          "Permission": {
+            "Read": "OWNER",
+            "Execute": "NONE"
+          }
+        },
+        {
+          "Uri": "s3://sagemaker-us-east-1-670488263423/image-classification-neo-2022-05-18-23-32-39-457/output/edgemanager/labels.txt",
+          "Digest": "vlV/wTOOeJL5hF/nhaZ44hElbmlIomSCuDRbodITzIg=",
+          "Algorithm": "SHA-256",
+          "Unarchive": "NONE",
+          "Permission": {
+            "Read": "ALL",
+            "Execute": "NONE"
+          }
+        }
+      ]
+    }
+    ],
+  "Lifecycle": {}
+}

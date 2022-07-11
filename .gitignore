@@ -1,0 +1,4 @@
+# ignore the following files and folders
+.ipynb_checkpoints/
+sagemaker_notebook/.ipynb_checkpoints/
+.DS_Store
