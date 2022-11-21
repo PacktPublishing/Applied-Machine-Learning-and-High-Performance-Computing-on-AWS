@@ -1,0 +1,137 @@
+{ 
+
+    "Version": "2012-10-17", 
+
+    "Statement": [ 
+
+        { 
+
+            "Sid": "VisualEditor0", 
+
+            "Effect": "Allow", 
+
+            "Action": [ 
+
+                "iam:CreatePolicy", 
+
+                "iam:GetRole", 
+
+                "iam:PassRole", 
+
+                "iam:GetPolicy", 
+
+                "iam:CreateRole", 
+
+                "iam:AttachRolePolicy" 
+
+            ], 
+
+            "Resource": [ 
+
+                "arn:aws:iam::<account_id>:policy/GreengrassV2TokenExchangeRoleAccess", 
+
+                "arn:aws:iam::<account_id>:role/GreengrassV2TokenExchangeRole" 
+
+            ] 
+
+        }, 
+
+        { 
+
+            "Sid": "VisualEditor1", 
+
+            "Effect": "Allow", 
+
+            "Action": [ 
+
+                "s3-object-lambda:List*", 
+
+                "iot:AttachThingPrincipal", 
+
+                "iot:Connect", 
+
+                "iot:AddThingToThingGroup", 
+
+                "s3:Get*", 
+
+                "iot:CreatePolicy", 
+
+                "iot:DescribeCertificate", 
+
+                "s3:List*", 
+
+                "iot:DeleteThingShadow", 
+
+                "iot:DescribeEndpoint", 
+
+                "iot:CreateRoleAlias", 
+
+                "greengrass:CreateDeployment", 
+
+                "iot:Subscribe", 
+
+                "iot:DescribeRoleAlias", 
+
+                "iot:GetThingShadow", 
+
+                "iot:CreateKeysAndCertificate", 
+
+                "iot:Publish", 
+
+                "iot:CreateThing", 
+
+                "iot:GetPolicy", 
+
+                "iot:UpdateJob", 
+
+                "iot:AttachPolicy", 
+
+                "iot:DescribeThingGroup", 
+
+                "iot:DescribeThing", 
+
+                "iot:UpdateThingShadow", 
+
+                "iot:CreateJob", 
+
+                "iot:Receive", 
+
+                "iot:CreateThingGroup", 
+
+                "s3-object-lambda:Get*", 
+
+                "iot:CancelJob", 
+
+                "iot:DescribeJob" 
+
+            ], 
+
+            "Resource": "*" 
+
+        }, 
+
+     
+
+        { 
+
+            "Effect": "Allow", 
+
+            "Action": [ 
+
+                "s3:Get*", 
+
+                "s3:List*", 
+
+                "s3-object-lambda:Get*", 
+
+                "s3-object-lambda:List*" 
+
+            ], 
+
+            "Resource": "*" 
+
+        } 
+
+    ] 
+
+} 
