@@ -46,10 +46,10 @@ To follow the text and examples in this book, you are recommended to have a foun
 Python and HPC, and an intermediate understanding of data analysis, ML, and AI. In addition, you should
 have access to the following technology tools to work through the code and experimentation examples:
 
-| Chapter  | Software required                      | OS required                        |
-| -------- | ------------------------------------   | -----------------------------------|
-| 1-14	   | An AWS account                         | Windows, Mac OS X, and Linux (Any) |                                                            
-|     	   | A web browser (Google Chrome, Mozilla                                       |
+| Chapter | Software required                      | OS required                        |
+| --------| ------------------------------------   | -----------------------------------|
+| 1-14	 | An AWS account                         | Windows, Mac OS X, and Linux (Any) |                                                            
+|     	 | A web browser (Google Chrome, Mozilla                                       |
 | 	       | Firefox, or Safari)                                                         |
 
 
